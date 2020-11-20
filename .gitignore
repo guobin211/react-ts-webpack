@@ -1,0 +1,11 @@
+dist
+build
+node_modules
+caches
+chahe
+.vscode/
+.idea/
+.cache/
+logs
+
+*.log
