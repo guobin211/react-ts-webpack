@@ -27,7 +27,6 @@ const mergedConfig = merge(commonConfig, {
     }),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
-        // 生产环境打包并不频繁，可以适当调高允许使用的内存，加快类型检查速度
         memoryLimit: 1024 * 2,
         configFile: resolve(ProjectEnv.projectRoot, './src/tsconfig.json'),
       },

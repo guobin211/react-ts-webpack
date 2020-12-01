@@ -22,6 +22,7 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "target": "ES2019",
-    "module": "ESNext"
+    "module": "ESNext",
+    "outDir": "../build"
   }
 }

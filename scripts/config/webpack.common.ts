@@ -38,17 +38,16 @@ function getCssLoaders(importLoaders: number) {
  */
 //@ts-ignore
 const htmlMinifyOptions: HtmlMinifierOptions = {
-  collapseWhitespace: true,
-  collapseBooleanAttributes: true,
-  collapseInlineTagWhitespace: true,
   removeComments: true,
+  collapseWhitespace: true,
   removeRedundantAttributes: true,
-  removeScriptTypeAttributes: true,
-  removeStyleLinkTypeAttributes: true,
-  minifyCSS: true,
-  minifyJS: true,
-  minifyURLs: true,
   useShortDoctype: true,
+  removeEmptyAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+  keepClosingSlash: true,
+  minifyJS: true,
+  minifyCSS: true,
+  minifyURLs: true,
 };
 
 const commonConfig: Configuration = {
@@ -76,13 +75,15 @@ const commonConfig: Configuration = {
     }),
     new FriendlyErrorsPlugin(),
     new CleanWebpackPlugin(),
-    // new HtmlWebpackPlugin({
-    //   /**
-    //    * HtmlWebpackPlugin 会调用 HtmlMinifier 对 HTMl 文件进行压缩, 只在生产环境压缩
-    //    */
-    //   title: ProjectEnv.projectName,
-    //   template: resolve(ProjectEnv.projectRoot, './public/index.html'),
-    // }),
+    new HtmlWebpackPlugin(Object.assign(
+        {},
+        {
+          inject: true,
+          template: resolve(ProjectEnv.projectRoot, './public/index.html'),
+        },
+        ProjectEnv.isDevMode ? undefined : { minify: htmlMinifyOptions}
+        ),
+    ),
     new CopyPlugin({
       patterns: [
         {

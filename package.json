@@ -2,10 +2,10 @@
   "name": "react-ts-webpack",
   "version": "1.0.0",
   "description": "webpack ts for react",
-  "main": "index.js",
   "scripts": {
     "start": "cross-env-shell NODE_ENV=development ts-node --files -P ./scripts/tsconfig.json ./scripts/tasks/start",
-    "build": "cross-env-shell NODE_ENV=production ts-node --files -P scripts/tsconfig.json scripts/tasks/build"
+    "build": "cross-env-shell NODE_ENV=production ts-node --files -P scripts/tsconfig.json scripts/tasks/build",
+    "compile": "tsc --build src/tsconfig.json"
   },
   "repository": {},
   "keywords": [],

@@ -24,7 +24,7 @@ const Counter = memo(function Counter({ initialCount = 0 }: CounterProps) {
 function App() {
   return (
       <div className="app">
-        <h2 className="title">react typescript webpack 999</h2>
+        <h2 className="title">react typescript webpack 777</h2>
         <Counter/>
       </div>
   );

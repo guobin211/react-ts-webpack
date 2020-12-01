@@ -7,12 +7,11 @@ import commonConfig from './webpack.common';
 
 const config: Configuration = {
   mode: 'development',
-  // [inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map
   devtool: 'source-map',
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       typescript: {
-        memoryLimit: 1024,
+        memoryLimit: 2048,
         configFile: resolve(ProjectEnv.projectRoot, './src/tsconfig.json'),
       },
     }),
